@@ -100,7 +100,7 @@ def main():
     target = target.view(1, -1)
     #print("The Target:" + str(target))
 
-    for i in range(20):
+    for i in range(25):
         optimizer.zero_grad()
         out = net(torch.FloatTensor(resX))
 
@@ -113,6 +113,10 @@ def main():
         print(loss.item())
 
     print(out)
+    input = [[[66, 135, 245], [125, 179, 255]], [[0, 0, 0], [255, 47, 0]]]
+    out=net(torch.FloatTensor(input))
+    print(out)
+
     #
 
     #net.zero_grad()

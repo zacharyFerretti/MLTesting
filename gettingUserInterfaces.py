@@ -8,16 +8,6 @@ from tkinter import *
 from PIL import Image, ImageTk
 import csv
 
-
-# Callback for the "Blur" button
-def isComp():
-	print("Complimentary")
-
-
-def isNot():
-	print("Clashing")
-
-
 x = pandas.read_csv('./rgb_two_dominant.csv', header=None, sep="|")
 
 root = Tk()
@@ -46,7 +36,7 @@ def ClickTrue():
 	label.configure(image=photoArray[count][0])
 	label2.configure(image=photoArray[count][1])
 	complimentaryArray= [make_tuple(x[0][count]), make_tuple(x[1][count]), 1]
-	with open('/Users/zach/code/python-projects/deep-education/rgb_two_dominant_with_label.csv', 'a', newline='') as csvfile:
+	with open('/Users/zach/code/python-projects/deep-education/rgb_two_dominant_with_label_better.csv', 'a', newline='') as csvfile:
 		compCSV = csv.writer(csvfile, delimiter='|')
 		compCSV.writerow(complimentaryArray)
 	print(complimentaryArray)
@@ -55,7 +45,7 @@ def ClickTrue():
 
 
 for i in range(len(x)):
-	pictureOne = ImageTk.PhotoImage(Image.new("RGB", (75, 75), make_tuple(x[0][i])))
+	pictureOne = ImageTk.PhotoImage(Image.new("RGB", (75, 75), make_tuple()))
 	pictureTwo = ImageTk.PhotoImage(Image.new("RGB", (75, 75), make_tuple(x[1][i])))
 	array = [pictureOne, pictureTwo]
 	photoArray.append(array)
@@ -84,4 +74,6 @@ button = Button(labelframe, padx=5, pady=5, text="Complimentary", command=ClickT
 button.pack(side=LEFT)
 
 left.pack()
+root.bind('n', lambda event: ClickFalse())
+root.bind('y', lambda event: ClickTrue())
 root.mainloop()
