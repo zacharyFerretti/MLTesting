@@ -18,7 +18,7 @@ x = pandas.read_csv('./list_of_rgb.csv', header=None, sep="|")
 print(x)
 root = Tk()
 
-count = 0
+count = 1500
 
 photoArray = []
 
@@ -26,7 +26,10 @@ photoArray = []
 def Click(theValue):
 	global count
 
-
+	if(theValue):
+		intValue=1
+	else:
+		intValue=0
 	label.configure(image=photoArray[count][0])
 	label2.configure(image=photoArray[count][1])
 	complimentaryArray = [colorArray[count][0], colorArray[count][1], intValue]
@@ -63,10 +66,10 @@ print(type(photoArray[0][0]))
 label = Label(root, image=photoArray[0][0])
 label2 = Label(root, image=photoArray[0][1])
 
-label.image = photoArray[0][0]  # keep a reference!
+label.image = photoArray[1500][0]  # keep a reference!
 label.pack()
 
-label2.image = photoArray[0][1]
+label2.image = photoArray[1500][1]
 label2.pack()
 
 labelframe = LabelFrame(root)
