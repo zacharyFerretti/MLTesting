@@ -24,39 +24,39 @@ photoArray = []
 
 
 def Click(theValue):
-	global count
+    global count
 
-	if(theValue):
-		intValue=1
-	else:
-		intValue=0
-	label.configure(image=photoArray[count][0])
-	label2.configure(image=photoArray[count][1])
-	complimentaryArray = [colorArray[count][0], colorArray[count][1], intValue]
-	with open('/Users/zach/code/python-projects/deep-education/rgb_labeled_explored.csv', 'a', newline='') as csvfile:
-		compCSV = csv.writer(csvfile, delimiter='|')
-		compCSV.writerow(complimentaryArray)
-	count = count + 1
-	print(complimentaryArray)
-	print(theValue)
-	print("Updated")
+    if(theValue):
+        intValue = 1
+    else:
+        intValue = 0
+    label.configure(image=photoArray[count][0])
+    label2.configure(image=photoArray[count][1])
+    complimentaryArray = [colorArray[count][0], colorArray[count][1], intValue]
+    with open('/Users/zach/code/python-projects/deep-education/rgb_labeled_explored.csv', 'a', newline='') as csvfile:
+        compCSV = csv.writer(csvfile, delimiter='|')
+        compCSV.writerow(complimentaryArray)
+    count = count + 1
+    print(complimentaryArray)
+    print(theValue)
+    print("Updated")
 
 
 print(len(x))
 colorArray = []
 for i in range(len(x)):
-	xTuple = make_tuple(x[0][i])
-	pictureOne = ImageTk.PhotoImage(Image.new("RGB", (150, 150), xTuple))
-	for j in range(8):
-		r = random.randint(0, 256)
-		g = random.randint(0, 256)
-		b = random.randint(0, 256)
-		rgbTuple = (r, g, b)
-		pictureTwo = ImageTk.PhotoImage(Image.new("RGB", (150, 150), rgbTuple))
-		array = [pictureOne, pictureTwo]
-		tupleArray = [xTuple, rgbTuple]
-		colorArray.append(tupleArray)
-		photoArray.append(array)
+    xTuple = make_tuple(x[0][i])
+    pictureOne = ImageTk.PhotoImage(Image.new("RGB", (150, 150), xTuple))
+    for j in range(8):
+        r = random.randint(0, 256)
+        g = random.randint(0, 256)
+        b = random.randint(0, 256)
+        rgbTuple = (r, g, b)
+        pictureTwo = ImageTk.PhotoImage(Image.new("RGB", (150, 150), rgbTuple))
+        array = [pictureOne, pictureTwo]
+        tupleArray = [xTuple, rgbTuple]
+        colorArray.append(tupleArray)
+        photoArray.append(array)
 
 print(len(photoArray))
 print(len(photoArray[0]))

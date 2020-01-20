@@ -1,0 +1,147 @@
+Results Log :
+
+Model Configuration A
+	- LR (0.2)
+	- Epochs 500,000
+	- Average Correct: 68.88%
+
+	NeuralNet(
+	  (hidden): Linear(in_features=6, out_features=3, bias=True)
+	  (output): Linear(in_features=3, out_features=1, bias=True)
+	  (sigmoid): Sigmoid()
+	)
+
+
+	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	~ Statistics About Predictions ~
+	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	[4, 18, 47, 65, 99, 171, 277, 719, 1083, 477, 38, 0, 0]
+	0 - 5 Percent: 4 | 4/4: 100.0%
+	5 - 10 Percent: 18 | 17/18: 94.44%
+	10 - 15 Percent: 47 | 43/47: 91.49%
+	15 - 20 Percent: 65 | 52/65: 80.0%
+	20 - 25 Percent: 99 | 77/99: 77.78%
+	25 - 30 Percent: 171 | 120/171: 70.18%
+	30 - 35 Percent: 277 | 178/277: 64.26%
+	35 - 40 Percent: 719 | 271/719: 37.69%
+	40 - 45 Percent: 1083 | 448/1083: 41.37%
+	45 - 50 Percent: 477 | 241/477: 50.52%
+	50 - 55 Percent: 38 | 19/38: 50.0%
+	> 55 Percent: 0 | N/A: N/A%
+
+
+Model Configuration B
+	- LR (0.5)
+	- Epochs 500,000
+	- Average Correct: 69.09%
+
+	NeuralNet(
+	  (hidden): Linear(in_features=6, out_features=3, bias=True)
+	  (output): Linear(in_features=3, out_features=1, bias=True)
+	  (sigmoid): Sigmoid()
+	)
+	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	~ Statistics About Predictions ~
+	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	[1, 11, 27, 47, 95, 161, 258, 545, 863, 877, 94, 21, 0]
+	0 - 5 Percent: 1 | 1/1: 100.0%
+	5 - 10 Percent: 11 | 11/11: 100.0%
+	10 - 15 Percent: 27 | 24/27: 88.89%
+	15 - 20 Percent: 47 | 44/47: 93.62%
+	20 - 25 Percent: 95 | 77/95: 81.05%
+	25 - 30 Percent: 161 | 109/161: 67.7%
+	30 - 35 Percent: 258 | 180/258: 69.77%
+	35 - 40 Percent: 545 | 216/545: 39.63%
+	40 - 45 Percent: 863 | 349/863: 40.44%
+	45 - 50 Percent: 877 | 391/877: 44.58%
+	50 - 55 Percent: 94 | 48/94: 51.06%
+	> 55 Percent: 21 | 11/21: 52.38%
+
+
+Model Configuration C
+	- LR (1.0)
+	- Epochs 500,000
+	- Average Correct: 38.97%
+
+	NeuralNet(
+	  (hidden): Linear(in_features=6, out_features=3, bias=True)
+	  (output): Linear(in_features=3, out_features=1, bias=True)
+	  (sigmoid): Sigmoid()
+	)
+	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	~ Statistics About Predictions ~
+	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3000, 0]
+	0 - 5 Percent: 0 | N/A: N/A%
+	5 - 10 Percent: 0 | N/A: N/A%
+	10 - 15 Percent: 0 | N/A: N/A%
+	15 - 20 Percent: 0 | N/A: N/A%
+	20 - 25 Percent: 0 | N/A: N/A%
+	25 - 30 Percent: 0 | N/A: N/A%
+	30 - 35 Percent: 0 | N/A: N/A%
+	35 - 40 Percent: 0 | N/A: N/A%
+	40 - 45 Percent: 0 | N/A: N/A%
+	45 - 50 Percent: 0 | N/A: N/A%
+	50 - 55 Percent: 0 | N/A: N/A%
+	> 55 Percent: 3000 | 1169/3000: 38.97%
+
+
+Model Configuration D
+	- LR (0.6)
+	- Epochs 500,000
+	- Average Correct: 68.41%
+
+	NeuralNet(
+	  (hidden): Linear(in_features=6, out_features=3, bias=True)
+	  (output): Linear(in_features=3, out_features=1, bias=True)
+	  (sigmoid): Sigmoid()
+	)
+	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	~ Statistics About Predictions ~
+	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	[1, 17, 29, 48, 86, 150, 275, 620, 983, 698, 77, 15, 0]
+	0 - 5 Percent: 1 | 1/1: 100.0%
+	5 - 10 Percent: 17 | 16/17: 94.12%
+	10 - 15 Percent: 29 | 27/29: 93.1%
+	15 - 20 Percent: 48 | 42/48: 87.5%
+	20 - 25 Percent: 86 | 72/86: 83.72%
+	25 - 30 Percent: 150 | 102/150: 68.0%
+	30 - 35 Percent: 275 | 189/275: 68.73%
+	35 - 40 Percent: 620 | 240/620: 38.71%
+	40 - 45 Percent: 983 | 399/983: 40.59%
+	45 - 50 Percent: 698 | 325/698: 46.56%
+	50 - 55 Percent: 77 | 41/77: 53.25%
+	> 55 Percent: 15 | 7/15: 46.67%
+
+
+Model Configuration E
+	- LR (0.55)
+	- Epochs 500,000
+	- Average Correct: 68.1 %
+
+	NeuralNet(
+	  (hidden): Linear(in_features=6, out_features=3, bias=True)
+	  (output): Linear(in_features=3, out_features=1, bias=True)
+	  (sigmoid): Sigmoid()
+	)
+	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	~ Statistics About Predictions ~
+	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	[10, 24, 46, 67, 122, 206, 429, 703, 997, 356, 34, 4, 0]
+	0 - 5 Percent: 10 | 9/10: 90.0%
+	5 - 10 Percent: 24 | 23/24: 95.83%
+	10 - 15 Percent: 46 | 43/46: 93.48%
+	15 - 20 Percent: 67 | 53/67: 79.1%
+	20 - 25 Percent: 122 | 86/122: 70.49%
+	25 - 30 Percent: 206 | 150/206: 72.82%
+	30 - 35 Percent: 429 | 266/429: 62.0%
+	35 - 40 Percent: 703 | 275/703: 39.12%
+	40 - 45 Percent: 997 | 424/997: 42.53%
+	45 - 50 Percent: 356 | 177/356: 49.72%
+	50 - 55 Percent: 34 | 16/34: 47.06%
+	> 55 Percent: 4 | 3/4: 75.0%
+
+
+	Average Correct: 68.1%
+
+
