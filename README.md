@@ -14,9 +14,9 @@ If I were able to figure out how to host this model and script on an AWS service
 _Note: for the remainder of this document if I use the word complimentary, I am using it to mean two colors look good together. Not the color theory definition of complimentary_
 * ~~Generate a script that allows me to recursively perform k-means clustering on entire folders and save that output to a CSV file~~This was completed in another different repository I plan on adding this script into this repo, but have not yet. For now you can find that repository [here.](https://gitlab.com/zacharyFerretti/python-dominant-color)
 
-* ~~Write a program that allows me to manually label color pairs as complimentary or as clashing.~~ Completed January 19th
+* ~~Write a program that allows me to manually label color pairs as complimentary or as clashing.~~ __Completed January 19th__
 
-* ~~Make a neural network that can predict whether or not colors are complimentary~~ Completed January 20th
+* ~~Make a neural network that can predict whether or not colors are complimentary~~ __Completed January 20th__
 
 * I want to continue working to make the model more effective and then begin generating colors and predicting their complimentary 'ness' with the input color.
 
