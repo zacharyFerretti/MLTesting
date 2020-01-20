@@ -14,7 +14,7 @@ from PIL import ImageTk
 import random
 import csv
 
-x = pandas.read_csv('./list_of_rgb.csv', header=None, sep="|")
+x = pandas.read_csv('./rgb_long.csv', header=None, sep="|")
 print(x)
 root = Tk()
 
@@ -42,6 +42,7 @@ def Click(theValue):
 	print("Updated")
 
 
+print(len(x))
 colorArray = []
 for i in range(len(x)):
 	xTuple = make_tuple(x[0][i])
