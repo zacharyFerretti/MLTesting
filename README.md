@@ -20,3 +20,6 @@ _Note: for the remainder of this document if I use the word complimentary, I am 
 
 * I want to continue working to make the model more effective and then begin generating colors and predicting their complimentary 'ness' with the input color.
 
+##The Story So Far
+
+To start this project, I had to update my  

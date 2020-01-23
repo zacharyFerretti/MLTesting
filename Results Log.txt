@@ -172,5 +172,115 @@ Model Configuration F
 	50 - 55 Percent: 72 | 38/72: 52.78%
 	> 55 Percent: 11 | 6/11: 54.55%
 
+Model Configuration F
+	- LR (0.5)
+	- Epochs 500,000
+	- Average Correct 70.91%
 
+	NeuralNet(
+	  (hidden): Linear(in_features=6, out_features=36, bias=True)
+	  (hidden2): Linear(in_features=36, out_features=18, bias=True)
+	  (hidden3): Linear(in_features=18, out_features=9, bias=True)
+	  (output): Linear(in_features=9, out_features=1, bias=True)
+	  (sigmoid): Sigmoid()
+	)
+
+	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	~ Statistics About Predictions ~
+	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	[9, 22, 33, 60, 96, 147, 264, 537, 1731, 92, 0, 0, 0]
+	0 - 5 Percent: 9 | 9/9: 100.0%
+	5 - 10 Percent: 22 | 21/22: 95.45%
+	10 - 15 Percent: 33 | 30/33: 90.91%
+	15 - 20 Percent: 60 | 48/60: 80.0%
+	20 - 25 Percent: 96 | 75/96: 78.12%
+	25 - 30 Percent: 147 | 107/147: 72.79%
+	30 - 35 Percent: 264 | 174/264: 65.91%
+	35 - 40 Percent: 537 | 217/537: 40.41%
+	40 - 45 Percent: 1731 | 746/1731: 43.1%
+	45 - 50 Percent: 92 | 39/92: 42.39%
+	50 - 55 Percent: 0 | N/A: N/A%
+	> 55 Percent: 0 | N/A: N/A%
+
+Model Configuration G 
+	- LR (0.5)
+	- Epochs 500,000
+	- Average Correct 73.99%
+
+	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	~ Statistics About Predictions ~
+	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	[22, 50, 65, 72, 79, 79, 111, 217, 2306, 0, 0, 0, 0]
+	0 - 5 Percent: 22 | 22/22: 100.0%
+	5 - 10 Percent: 50 | 45/50: 90.0%
+	10 - 15 Percent: 65 | 57/65: 87.69%
+	15 - 20 Percent: 72 | 59/72: 81.94%
+	20 - 25 Percent: 79 | 57/79: 72.15%
+	25 - 30 Percent: 79 | 62/79: 78.48%
+	30 - 35 Percent: 111 | 79/111: 71.17%
+	35 - 40 Percent: 217 | 91/217: 41.94%
+	40 - 45 Percent: 2306 | 981/2306: 42.54%
+
+Model Configuration H
+	- LR (0.5)
+	- Epochs 500,000
+	- Average Correct 69.82%
+
+	NeuralNet(
+	  (hidden): Linear(in_features=6, out_features=36, bias=True)
+	  (hidden2): Linear(in_features=36, out_features=18, bias=True)
+	  (hidden3): Linear(in_features=18, out_features=6, bias=True)
+	  (hidden4): Linear(in_features=6, out_features=3, bias=True)
+	  (output): Linear(in_features=3, out_features=1, bias=True)
+	  (sigmoid): Sigmoid()
+	)
+
+	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	~ Statistics About Predictions ~
+	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	[15, 86, 99, 84, 66, 113, 614, 1127, 711, 80, 6, 0, 0]
+	0 - 5 Percent: 15 | 14/15: 93.33%
+	5 - 10 Percent: 86 | 76/86: 88.37%
+	10 - 15 Percent: 99 | 84/99: 84.85%
+	15 - 20 Percent: 84 | 66/84: 78.57%
+	20 - 25 Percent: 66 | 55/66: 83.33%
+	25 - 30 Percent: 113 | 72/113: 63.72%
+	30 - 35 Percent: 614 | 386/614: 62.87%
+	35 - 40 Percent: 1127 | 465/1127: 41.26%
+	40 - 45 Percent: 711 | 329/711: 46.27%
+	45 - 50 Percent: 80 | 47/80: 58.75%
+	50 - 55 Percent: 6 | 4/6: 66.67%
+	> 55 Percent: 0 | N/A: N/A%
+
+Model Configuration I 
+	-LR (0.5)
+	-Epochs 500,000
+	-Average Correctness 70.72%
+	- Saved as best_trained_model_trying_tobeat69point8
+	NeuralNet(
+	  (hidden): Linear(in_features=6, out_features=18, bias=True)
+	  (hidden2): Linear(in_features=18, out_features=9, bias=True)
+	  (hidden3): Linear(in_features=9, out_features=3, bias=True)
+	  (output): Linear(in_features=3, out_features=1, bias=True)
+	  (sigmoid): Sigmoid()
+	)
+	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	~ Statistics About Predictions ~
+	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	[23, 32, 53, 54, 101, 170, 249, 396, 677, 604, 253, 361, 0]
+	0 - 5 Percent: 23 | 22/23: 95.65%
+	5 - 10 Percent: 32 | 31/32: 96.88%
+	10 - 15 Percent: 53 | 51/53: 96.23%
+	15 - 20 Percent: 54 | 49/54: 90.74%
+	20 - 25 Percent: 101 | 90/101: 89.11%
+	25 - 30 Percent: 170 | 131/170: 77.06%
+	30 - 35 Percent: 249 | 177/249: 71.08%
+	35 - 40 Percent: 396 | 143/396: 36.11%
+	40 - 45 Percent: 677 | 272/677: 40.18%
+	45 - 50 Percent: 604 | 274/604: 45.36%
+	50 - 55 Percent: 253 | 115/253: 45.45%
+	> 55 Percent: 361 | 234/361: 64.82%
+
+
+	Average Correct: 70.72%
 
