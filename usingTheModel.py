@@ -1,16 +1,6 @@
-import torch
-from torch import load
-from torch import FloatTensor
-from torch.autograd import Variable
-
-from PIL import Image
-from pandas import read_csv
-
-from neuralNetworkFinal import NeuralNet
-from neuralNetworkFinal import dataProcessing
-
-import sys
-import random
+import tkinter as tk
+import tkinter.ttk as ttk
+from tkcolorpicker import askcolor
 
 
 def random_color_generation(red_green_blue):
@@ -28,13 +18,17 @@ def random_color_generation(red_green_blue):
         generatedColors.append(curr_rgb)
     return generatedTensors, generatedColors
 
+    
+def getColor():
+    print(askcolor((255, 255, 0), root))
+
 
 def display_results(generatedColors):
     figures = []
     original = (generatedColors[0][0], generatedColors[0][1], generatedColors[0][2])
     figures.append(Image.new("RGB", (200, 200), original))
-    colors = [0, 100, 400, 600, 800 ,1600, 1800, 2200]
-    #colors = [4993,4994,4995,4996,4997,4998,4999]
+    colors = [0, 100, 400, 600, 800, 1600, 1800, 2200]
+    # colors = [4993,4994,4995,4996,4997,4998,4999]
     for i in colors:
         rgb = (generatedColors[i][3], generatedColors[i][4], generatedColors[i][5])
         figures.append(Image.new("RGB", (200, 200), rgb))
@@ -52,7 +46,7 @@ def display_results(generatedColors):
 
 
 def main():
-    model = load("./best_trained_model_tryingtobeat69point8.pt")
+	model = load("./best_trained_model_tryingtobeat69point8.pt")
     red_green_blue = [float(sys.argv[1]) / 256, float(sys.argv[2]) / 256, float(sys.argv[3]) / 256]
     print(red_green_blue)
     grandTotal = read_csv('./rgb_labeled_explored.csv', header=None, sep="|").values.tolist()
@@ -69,7 +63,17 @@ def main():
     Z = [colors for _, colors in sorted(zip(prediction, colors))]
     # print(Z[0])
     display_results(Z)
+    '''
+    root = tk.Tk()
+	style = ttk.Style(root)
+	style.theme_use('clam')
+
+	root.bind("<space>", lambda event: getColor())
+
+	root.mainloop()
+	'''
 
 
 if __name__ == '__main__':
-    main()
+	main()
+
