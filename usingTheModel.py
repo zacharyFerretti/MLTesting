@@ -9,7 +9,6 @@ from torch.autograd import Variable
 from torch import load
 
 
-
 def random_color_generation(red_green_blue):
     generatedTensors = []
     generatedColors = []
@@ -50,37 +49,39 @@ def display_results(generatedColors):
 
     allInOne.show()'''
 
-    #To just return the values.
-    original = (generatedColors[0][0], generatedColors[0][1], generatedColors[0][2])
+    # To just return the values.
+    original = (generatedColors[0][0],
+                generatedColors[0][1], generatedColors[0][2])
     figures.append(original)
     colors = [0, 100, 400, 600, 800, 1600, 1800, 2200]
     for i in colors:
-        rgb = (generatedColors[i][3], generatedColors[i][4], generatedColors[i][5])
+        rgb = (generatedColors[i][3], generatedColors[i]
+               [4], generatedColors[i][5])
         figures.append(rgb)
     return figures
-    
 
 
 def main():
     print(os.listdir("."))
-    model = load("./best_trained_model_tryingtobeat69point8.pt")
+    model = load("./deep-education/best_trained_model_tryingtobeat69point8.pt")
     red_green_blue = [float(112) / 256, float(198) / 256, float(231) / 256]
     #red_green_blue = [float(sys.argv[1]) / 256, float(sys.argv[2]) / 256, float(sys.argv[3]) / 256]
-    #print(red_green_blue)
-    grandTotal = read_csv('./CSV Files/rgb_labeled_explored.csv', header=None, sep="|").values.tolist()
+    # print(red_green_blue)
+    grandTotal = read_csv(
+        './deep-education/CSV Files/rgb_labeled_explored.csv', header=None, sep="|").values.tolist()
 
     x, colors = random_color_generation(red_green_blue)
-    #print(x[0])
-    #print(colors[0])
+    # print(x[0])
+    # print(colors[0])
     x = FloatTensor(x)
 
     inputs = Variable(x)
     prediction = model(inputs)  # Prediction for each rgb pair.
-    #print(type(prediction.tolist()))
+    # print(type(prediction.tolist()))
 
     Z = [colors for _, colors in sorted(zip(prediction, colors))]
     # print(Z[0])
-    result=display_results(Z)
+    result = display_results(Z)
     print(result)
 
 
