@@ -32,14 +32,17 @@ def random_color_generation(red_green_blue):
 
 def display_results(generatedColors):
     figures = []
+    ''' If you plan on printing the figures use this.
+    figures = []
     original = (generatedColors[0][0], generatedColors[0][1], generatedColors[0][2])
+    
     figures.append(Image.new("RGB", (200, 200), original))
     colors = [0, 100, 400, 600, 800, 1600, 1800, 2200]
-    # colors = [4993,4994,4995,4996,4997,4998,4999]
+    
     for i in colors:
         rgb = (generatedColors[i][3], generatedColors[i][4], generatedColors[i][5])
         figures.append(Image.new("RGB", (200, 200), rgb))
-
+    
     x, y = figures[0].size
     ncol = 4
     nrow = 2
@@ -49,7 +52,17 @@ def display_results(generatedColors):
         px, py = x * int(i / nrow), y * (i % nrow)
         allInOne.paste(figures[i], (px, py))
 
-    allInOne.show()
+    allInOne.show()'''
+
+    #To just return the values.
+    original = (generatedColors[0][0], generatedColors[0][1], generatedColors[0][2])
+    figures.append(original)
+    colors = [0, 100, 400, 600, 800, 1600, 1800, 2200]
+    for i in colors:
+        rgb = (generatedColors[i][3], generatedColors[i][4], generatedColors[i][5])
+        figures.append(rgb)
+    return figures
+    
 
 
 def main():
@@ -69,7 +82,8 @@ def main():
 
     Z = [colors for _, colors in sorted(zip(prediction, colors))]
     # print(Z[0])
-    display_results(Z)
+    result=display_results(Z)
+    print(result)
 
 
 if __name__ == '__main__':
