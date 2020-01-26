@@ -62,10 +62,11 @@ def display_results(generatedColors):
 
 
 def main():
-    print(os.listdir("."))
+    # print(os.listdir("."))
     model = load("./deep-education/best_trained_model_tryingtobeat69point8.pt")
-    red_green_blue = [float(112) / 256, float(198) / 256, float(231) / 256]
-    #red_green_blue = [float(sys.argv[1]) / 256, float(sys.argv[2]) / 256, float(sys.argv[3]) / 256]
+    #red_green_blue = [float(112) / 256, float(198) / 256, float(231) / 256]
+    red_green_blue = [float(sys.argv[1]) / 256,
+                      float(sys.argv[2]) / 256, float(sys.argv[3]) / 256]
     # print(red_green_blue)
     grandTotal = read_csv(
         './deep-education/CSV Files/rgb_labeled_explored.csv', header=None, sep="|").values.tolist()
