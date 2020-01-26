@@ -1,8 +1,3 @@
-#import tkinter as tk
-#import tkinter.ttk as ttk
-#from tkcolorpicker import askcolor
-#from PIL import Image
-
 from pandas import read_csv
 import random
 import sys
