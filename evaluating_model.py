@@ -150,7 +150,7 @@ def get_statistics(prediction, outputs):
 
 def main():
 
-    grandTotal = read_csv('./CSV Files/rgb_labeled_explored.csv', header=None, sep="|").values.tolist()
+    grandTotal = read_csv('./deep-education/CSV Files/rgb_labeled_explored.csv', header=None, sep="|").values.tolist()
     x, y = dataProcessing(grandTotal)
 
     x = FloatTensor(x)
