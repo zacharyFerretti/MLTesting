@@ -1,19 +1,25 @@
+import pandas
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
 import torch.optim as optim
+from ast import literal_eval as make_tuple
 
 class Net(nn.Module):
 
     def __init__(self):
         super(Net, self).__init__()
-        # 1 input image channel, 3 output channels, 1x1 square convolution
+        # 2 input image channel (we have two input images), 6 output channels, 1x1 square convolution
         # kernel
-        self.conv1 = nn.Conv2d(1, 3, 1)
-        self.conv2 = nn.Conv2d(3, 8, 1)
+        #self.conv1 = nn.Conv2d(2, 6, 1)
+        #self.conv1 = nn.Conv2d(1,6,1)
+        #self.conv1 = nn.Conv2d(2,3,1)
+        #self.conv2 = nn.Conv2d(6, 12, 1)
+        self.conv1 = nn.Conv1d(2, 3, 1)
+        self.conv2 = nn.Conv1d(3, 6, 1)
         # an affine operation: y = Wx + b
-        self.fc1 = nn.Linear(24 * 1 * 1, 84)  # 6*6 from image dimension
-        self.fc2 = nn.Linear(84, 3)
+        self.fc1 = nn.Linear(6 * 3, 42)  # 2*3 from image dimension
+        self.fc2 = nn.Linear(42, 1)
 
     def forward(self, x):
         # Max pooling over a (2, 2) window
@@ -46,8 +52,27 @@ def train(model, device, train_loader, optimizer, epoch):
         if batch_idx % 100 == 0: #Print loss every 100 batch
             print('Train Epoch: {}\tLoss: {:.6f}'.format(
                 epoch, loss.item()))
-    accuracy = test(model, device, train_loader)
-    return accuracy
+    #accuracy = test(model, device, train_loader)
+    return 1
+
+def makeXY(theOriginalDataFrame):
+
+    xData = theOriginalDataFrame.drop(columns=[2])
+    xList = xData.values.tolist()
+    xListLists= []
+    for row in xList:
+        temp=[]
+        for col in row:
+            tuple = make_tuple(col)
+            list = [tuple[0], tuple[1], tuple[2]]
+            temp.append(list)
+        xListLists.append(temp)
+    #print(xListLists)
+
+    yData = theOriginalDataFrame.drop(columns=[0,1]).values.tolist()
+
+    #print(yData)
+    return xListLists, yData
 
 def main():
    
@@ -56,18 +81,52 @@ def main():
     learning_rate = 0.01
     NumEpochs = 10
     batch_size = 32
+    x = pandas.read_csv('./rgb_two_dominant_with_label.csv', header=None, sep="|")
+    #theList = x.values.tolist()
+    resX, resY = makeXY(x)
 
     device = torch.device("cuda" if use_cuda else "cpu")
+    net = Net()
+    optimizer = optim.SGD(net.parameters(), lr=0.01)
+    print(net)
+    print(torch.FloatTensor(resX))
+    params = list(net.parameters())
+    #print("The Number Of Learned Parameters: " + str(len(params)))
+    #print(params[0].size())
+    #input = torch.randn(1, 2, 3, 1)
+    input = torch.randn(1,1,2,3)
 
-   
+    target = torch.randn(1)
+    target = target.view(1, -1)
+    #print("The Target:" + str(target))
 
+    for i in range(25):
+        optimizer.zero_grad()
+        out = net(torch.FloatTensor(resX))
+
+        criterion = nn.MSELoss()
+        loss = criterion(out,torch.FloatTensor(resY))
+        loss.backward()
+        optimizer.step()
+       # if(i%5==0):
+
+        print(loss.item())
+
+    print(out)
+    input = [[[66, 135, 245], [125, 179, 255]], [[0, 0, 0], [255, 47, 0]]]
+    out=net(torch.FloatTensor(input))
+    print(out)
+
+    #
+
+    #net.zero_grad()
+    #out.backward(torch.randn(1,1))
+    '''
     # transform to torch tensors
    
     #Code I am adding
     net = Net()
     params = list(net.parameters())
-    input = torch.FloatTensor([[[[40, 43, 43]]]])
-    target = torch.FloatTensor([[[[242, 235, 231]]]])
     criterion = nn.MSELoss()
 
     # Original code
@@ -79,13 +138,13 @@ def main():
     epoch_array = []
 
     for epoch in range(NumEpochs):
-        '''optimizer.zero_grad()   # zero the gradient buffers
+        optimizer.zero_grad()   # zero the gradient buffers
         output = net(input)
         print(output)
         
         print(loss)
         loss.backward()
-        optimizer.step()    # Does the update'''
+        optimizer.step()    # Does the update
 
         net.zero_grad()
         output = net(input)
@@ -95,7 +154,7 @@ def main():
         for f in net.parameters():
             f.data.sub_(f.grad.data * learning_rate)
 
-    '''
+    
     
     print("\n~~~~~~")
     print(net)
