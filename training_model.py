@@ -15,7 +15,6 @@ class NeuralNet(nn.Module):
         self.hidden2 = nn.Linear(18, 9)
         self.hidden3 = nn.Linear(9, 3)
         self.output = nn.Linear(3, 1)
-        print("Hello")
         self.sigmoid = nn.Sigmoid()
 
     def forward(self, x):

@@ -1,6 +1,17 @@
 import tkinter as tk
 import tkinter.ttk as ttk
 from tkcolorpicker import askcolor
+from PIL import Image
+
+from pandas import read_csv
+import random
+import sys
+
+from training_model import NeuralNet
+from torch import FloatTensor
+from torch.autograd import Variable
+from torch import load
+
 
 
 def random_color_generation(red_green_blue):
@@ -17,10 +28,6 @@ def random_color_generation(red_green_blue):
             curr_rgb.append(int(entry * 256))
         generatedColors.append(curr_rgb)
     return generatedTensors, generatedColors
-
-    
-def getColor():
-    print(askcolor((255, 255, 0), root))
 
 
 def display_results(generatedColors):
@@ -46,10 +53,10 @@ def display_results(generatedColors):
 
 
 def main():
-	model = load("./best_trained_model_tryingtobeat69point8.pt")
+    model = load("./best_trained_model_tryingtobeat69point8.pt")
     red_green_blue = [float(sys.argv[1]) / 256, float(sys.argv[2]) / 256, float(sys.argv[3]) / 256]
     print(red_green_blue)
-    grandTotal = read_csv('./rgb_labeled_explored.csv', header=None, sep="|").values.tolist()
+    grandTotal = read_csv('./CSV Files/rgb_labeled_explored.csv', header=None, sep="|").values.tolist()
 
     x, colors = random_color_generation(red_green_blue)
     print(x[0])
@@ -63,17 +70,7 @@ def main():
     Z = [colors for _, colors in sorted(zip(prediction, colors))]
     # print(Z[0])
     display_results(Z)
-    '''
-    root = tk.Tk()
-	style = ttk.Style(root)
-	style.theme_use('clam')
-
-	root.bind("<space>", lambda event: getColor())
-
-	root.mainloop()
-	'''
 
 
 if __name__ == '__main__':
-	main()
-
+    main()
