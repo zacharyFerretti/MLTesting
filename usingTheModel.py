@@ -1,11 +1,12 @@
-import tkinter as tk
-import tkinter.ttk as ttk
-from tkcolorpicker import askcolor
-from PIL import Image
+#import tkinter as tk
+#import tkinter.ttk as ttk
+#from tkcolorpicker import askcolor
+#from PIL import Image
 
 from pandas import read_csv
 import random
 import sys
+import os
 
 from training_model import NeuralNet
 from torch import FloatTensor
@@ -66,19 +67,21 @@ def display_results(generatedColors):
 
 
 def main():
+    print(os.listdir("."))
     model = load("./best_trained_model_tryingtobeat69point8.pt")
-    red_green_blue = [float(sys.argv[1]) / 256, float(sys.argv[2]) / 256, float(sys.argv[3]) / 256]
-    print(red_green_blue)
+    red_green_blue = [float(112) / 256, float(198) / 256, float(231) / 256]
+    #red_green_blue = [float(sys.argv[1]) / 256, float(sys.argv[2]) / 256, float(sys.argv[3]) / 256]
+    #print(red_green_blue)
     grandTotal = read_csv('./CSV Files/rgb_labeled_explored.csv', header=None, sep="|").values.tolist()
 
     x, colors = random_color_generation(red_green_blue)
-    print(x[0])
-    print(colors[0])
+    #print(x[0])
+    #print(colors[0])
     x = FloatTensor(x)
 
     inputs = Variable(x)
     prediction = model(inputs)  # Prediction for each rgb pair.
-    print(type(prediction.tolist()))
+    #print(type(prediction.tolist()))
 
     Z = [colors for _, colors in sorted(zip(prediction, colors))]
     # print(Z[0])

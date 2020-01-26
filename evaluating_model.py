@@ -149,7 +149,7 @@ def get_statistics(prediction, outputs):
 
 
 def main():
-
+    os.listdir(".")
     grandTotal = read_csv('./deep-education/CSV Files/rgb_labeled_explored.csv', header=None, sep="|").values.tolist()
     x, y = dataProcessing(grandTotal)
 
